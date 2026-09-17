@@ -1,1 +1,2 @@
 today,the wherter is not very good
+It's cloudy today.
