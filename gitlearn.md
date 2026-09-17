@@ -67,14 +67,77 @@ git commit的反向命令：git reset head 把仓库最新版本转移到暂存�
 在工作区中用rm删除了文件，如果你确实需要删除`git rm test.txt`，然后再commit；如果是误删的，从版本库里面恢复`git checkout -- test.txt`。
 
 ## 远程仓库
+
+### 先有的本地库，后有远程库，如何关联远程库
 添加了ssh key，连接了github
 
 允许添加多个key,有若干电脑，只需把每台电脑的key添加到github，就可以在每台电脑上往gihub推送了。
 
-在github上面创建了一个库。在本地运行命令：`git remote add origin git@github.com:LulinWu24/learngit.git
+在github上面创建了一个库。
+
+在本地运行命令：`git remote add origin git@github.com:LulinWu24/learngit.git
 `,这个远程库的名字就是origin.相当于远程库learngit的别名。
 
 把本地库的所有内容推送到远程库上：`$ git push -u origin master
 `
 
 只要本地做了提交，`git push origin master`把本地master分支的最新修改推送至Github.
+
+
+### 先创建远程库，从远程库克隆
+
+首先在github上面新创了一个库gitskills。也就是远程库。
+
+然后使用命令`git clone git@github.com:LulinWu24/gitskills.git`,将这个远程库克隆到本地库。
+
+**可以把别人的github库克隆到自己本地，然后再上传到自己的远程库成为自己的**
+
+克隆数据库有两种方式，这里使用的是SSH,还可以使用html.但是ssh协议更快。
+```
+//ssh
+git clone git@gitee.com:ge_minglin/gitskill.git 
+
+//https
+git clone https://gitee.com/ge_minglin/gitskill.git
+```
+
+## 分支
+head指向master主分支，master分支指向提交。
+
+新建并切换到dev分支:
+```
+git branch dev   新建分支
+git chechout dev  切换到当前分支
+
+与
+
+git checkout -b dev
+效果相同
+```
+
+`git branch`会列出所有分支，当前分支前面会有个*号。
+
+可以切换到dev分支上，然后对内容进行修改。修改了之后，切换到master分支查看内容，发现内容并没有修改。可以使用`git merge dev`合并指定分支(dev)到当前分支(master)。合并分支之后，使用`git branch -d dev`删除dev分支。
+
+
+**使用分支完成某项任务，合并后删除分支。这比直接再master分支上工作更安全**
+
+切换分支也可以用:
+
+创建并切换到新的dev分支`git switch -c dev`
+
+切换到已有分支`git switch master`
+
+```
+git branch  查看分支
+
+git branch <name> 新建分支
+
+git chechout <name> or git switch <name>  切换分支
+
+git checkout -b <name> or git switch -c <name>  新建并切换分支
+
+git merge <name>  合并分支
+
+git branch -d <name>  删除分支
+```
