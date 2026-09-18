@@ -158,3 +158,30 @@ git merge --no-ff -m "merge with no-ff" dev  禁用fast forward模式合并
 
 git log --graph --pretty=oneline --abbrev-commit 显示分支图
 ```
+
+你现在有一个工作分支dev,还有一个主分支master。你发现了一个bug,但是工作进行到一半还不能提交，使用stash，将工作现场‘储藏’。
+```
+git stash  储藏工作现场
+
+git switch -c issue-101 master上新建修复bug分支
+
+修改内容并提交（add+commit）
+
+切换到master,合并分支issue-101并删除该分支
+
+回到dev继续干活
+
+git stash list 查看工作现场
+
+git stash apply  恢复
+
+git stash drop  删除
+
+git stash pop 恢复的同时把stash内容也删除
+
+merge上修复了bug，但是这个bug在dev分支上可能也存在。
+
+切换到dev分支
+
+git cherry-pick 4c8052e 将这个修复过程复制到dev分支
+```
