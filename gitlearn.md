@@ -141,3 +141,20 @@ git merge <name>  合并分支
 
 git branch -d <name>  删除分支
 ```
+
+创建了一个feature1分支，修改了readme.txt文件，提交（add+commit）；切换到master分支，再修改readme.txt文件并提交。在两个分支上修改的内容不一致。直接使用merge合并，显示文件内容冲突了，需要手动解决冲突后再提交。
+
+使用cat查看文件内容，发现显示了不同分支下的版本。直接在本地文件上看，也是显示了不同的版本。
+
+
+自己手动修改内容后，再提交（add+commit），完成合并。已经合并了，就不用再merge了。
+
+合并分支fast forward模式，删除分支后，会丢掉分支信息。看不出曾经做过合并。使用`git merge --no-ff -m "merge with no-ff" dev`可以禁用fast forward模式。合并的时候会生成一个新的commit，保留了分支信息。
+
+**平时不能在master上干活，仅用来发布新版本。**
+
+```
+git merge --no-ff -m "merge with no-ff" dev  禁用fast forward模式合并
+
+git log --graph --pretty=oneline --abbrev-commit 显示分支图
+```
