@@ -12,3 +12,5 @@ a new branch dev.
 test barnch dev.
 
 test branch dev2.
+
+git bug test.
