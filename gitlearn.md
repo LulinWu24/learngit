@@ -159,6 +159,7 @@ git merge --no-ff -m "merge with no-ff" dev  禁用fast forward模式合并
 git log --graph --pretty=oneline --abbrev-commit 显示分支图
 ```
 
+<<<<<<< Updated upstream
 你现在有一个工作分支dev,还有一个主分支master。你发现了一个bug,但是工作进行到一半还不能提交，使用stash，将工作现场‘储藏’。
 ```
 git stash  储藏工作现场
@@ -185,3 +186,25 @@ merge上修复了bug，但是这个bug在dev分支上可能也存在。
 
 git cherry-pick 4c8052e 将这个修复过程复制到dev分支
 ```
+=======
+
+**每新增一个新功能，新建一个feature分支，然后再合并到dev分支。**
+
+`git branch -D <name>`强制删除分支，否则如果没合并的话，会报错。
+
+```
+git remote 查看远程库信息
+
+git remote -v  查看详细信息，如果没有推送权就看不到push地址
+
+git push origin master  将master分支推送到对应的远程分支上
+
+git oush origin dev
+```
+
+我现在在我这台电脑的另一个目录下面进行克隆。`git clone git@github.com:LulinWu24/learngit.git`
+
+git rebase 把本地未push的分叉提交历史整理成直线。
+
+可以对版本打标签。
+>>>>>>> Stashed changes
