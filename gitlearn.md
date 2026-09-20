@@ -160,6 +160,7 @@ git log --graph --pretty=oneline --abbrev-commit 显示分支图
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 你现在有一个工作分支dev,还有一个主分支master。你发现了一个bug,但是工作进行到一半还不能提交，使用stash，将工作现场‘储藏’。
 ```
 git stash  储藏工作现场
@@ -187,6 +188,8 @@ merge上修复了bug，但是这个bug在dev分支上可能也存在。
 git cherry-pick 4c8052e 将这个修复过程复制到dev分支
 ```
 =======
+=======
+>>>>>>> Stashed changes
 
 **每新增一个新功能，新建一个feature分支，然后再合并到dev分支。**
 
@@ -206,5 +209,9 @@ git oush origin dev
 
 git rebase 把本地未push的分叉提交历史整理成直线。
 
+<<<<<<< Updated upstream
+可以对版本打标签。
+>>>>>>> Stashed changes
+=======
 可以对版本打标签。
 >>>>>>> Stashed changes
