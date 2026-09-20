@@ -158,6 +158,10 @@ git merge --no-ff -m "merge with no-ff" dev  禁用fast forward模式合并
 
 git log --graph --pretty=oneline --abbrev-commit 显示分支图
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 你现在有一个工作分支dev,还有一个主分支master。你发现了一个bug,但是工作进行到一半还不能提交，使用stash，将工作现场‘储藏’。
 ```
 git stash  储藏工作现场
@@ -202,3 +206,40 @@ git oush origin dev
 我现在在我这台电脑的另一个目录下面进行克隆。`git clone git@github.com:LulinWu24/learngit.git`
 
 git rebase 把本地未push的分叉提交历史整理成直线。
+
+
+## 标签
+
+`git tag v1.0` 打标签
+
+`git tag`  查看所有标签
+
+默认标签是打在最新提交的commit上。如果忘记了打标签，找到commit id：`git log --pretty=oneline -- abbrev-commit`,然后打标签:`git tag v0.9 f52c633`
+
+可以使用`git show <tagname>`查看标签信息。
+
+`git tag -a <tagname> -m "说明文字"`  对指定标签进行文字说明。
+
+
+删除标签: `git tag -d v1.0`
+
+
+```
+git tag v1.0
+
+git tag
+
+git show <taganmes>
+
+git tag -a <taganame> -m "文字说明"
+
+git tag -d v1.0
+
+git push origin v1.0  将标签推送到远程
+
+git push origin --tags 将所有标签推送到远程
+
+git push origin :refs/tags/v1.1  删除远程标签
+
+```
+
