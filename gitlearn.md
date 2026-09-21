@@ -238,3 +238,10 @@ git push origin --tags 将所有标签推送到远程
 git push origin :refs/tags/v1.1  删除远程标签
 
 ```
+
+找到别人的项目，点击fork，就可以复制到自己的github账号下面。
+
+然后从自己的账号克隆。`>git clone git@github.com:LulinWu24/bootstrap.git`将其克隆到本地。
+
+
+可以pull request给官方仓库贡献代码。
